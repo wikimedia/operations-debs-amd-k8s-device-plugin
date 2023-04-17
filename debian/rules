@@ -1,0 +1,23 @@
+#!/usr/bin/make -f
+include /usr/share/dpkg/pkg-info.mk
+
+# See debhelper(7) (uncomment to enable)
+# output every command that modifies files on the build system.
+export DH_VERBOSE = 1
+export GOPATH=$(CURDIR)/debian/go-build
+export GOCACHE=$(CURDIR)/debian/go-cache
+
+%:
+	dh $@
+
+# This step causes failures with the binaries produced
+# by the go build process.
+override_dh_dwz:
+
+override_dh_auto_clean:
+	rm -rf $(CURDIR)/debian/go-build
+
+override_dh_auto_build:
+	mkdir $(CURDIR)/debian/go-build
+	export GOBIN=$(CURDIR)
+	cd $(CURDIR)/cmd/k8s-device-plugin; go build; mv k8s-device-plugin amd-k8s-device-plugin

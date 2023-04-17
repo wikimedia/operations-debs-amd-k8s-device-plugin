@@ -1,0 +1,5 @@
+amd-k8s-device-plugin (1.25.2.3-1) bullseye-wikimedia; urgency=medium
+
+  * Upstream version 1.25.2.3
+
+ -- Luca Toscano <ltoscano@wikimedia.org>  Fri, 14 Apr 2023 14:11:00 +0100

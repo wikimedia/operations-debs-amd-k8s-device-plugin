@@ -1,0 +1,10 @@
+[Unit]
+Description=AMD GPU K8s device plugin
+Wants=network-online.target
+After=network-online.target
+Requires=kubelet.service
+[Service]
+Restart=on-failure
+ExecStart=/usr/bin/amd-k8s-device-plugin watch -logtostderr=true -stderrthreshold=INFO -v=5
+[Install]
+WantedBy=multi-user.target

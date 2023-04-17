@@ -1,0 +1,14 @@
+Source: amd-k8s-device-plugin
+Section: net
+Priority: optional
+Maintainer: Luca Toscano <ltoscano@wikimedia.org>
+Build-Depends: debhelper-compat (= 13), libdrm-dev, hwloc (< 2.9.0), libhwloc-dev (< 2.9.0), pkg-config, curl, ca-certificates, git, go-bindata, golang-go (>= 1.19)
+Standards-Version: 4.5.0
+Homepage: https://github.com/RadeonOpenCompute/k8s-device-plugin
+
+Package: amd-k8s-device-plugin
+Architecture: linux-any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: AMD K8s plugin service
+ This is a K8s device plugin implementation to allow the usage of AMD GPUs
+ .
